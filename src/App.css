@@ -1,0 +1,775 @@
+/* Reset dan Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styles */
+.app-header {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.header-content h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header-content p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Data Form Styles */
+.data-form-container {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #dc2626;
+}
+
+.form-header h2 {
+  color: #dc2626;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-header p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  padding: 0.75rem;
+  border: 2px solid #e5e5e5;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.form-group input:required {
+  border-left: 4px solid #dc2626;
+}
+
+.form-actions {
+  text-align: center;
+  padding-top: 1rem;
+}
+
+/* Button Styles */
+.btn-primary {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+}
+
+.btn-secondary {
+  background: white;
+  color: #dc2626;
+  border: 2px solid #dc2626;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: #dc2626;
+  color: white;
+}
+
+.btn-back {
+  background: #6b7280;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  background: #4b5563;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-close:hover {
+  background: #f3f4f6;
+}
+
+/* Floor Plan Styles */
+.floor-plan-container {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.floor-plan-header {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.store-info h2 {
+  color: #dc2626;
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.store-info p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.progress-info {
+  text-align: right;
+}
+
+.progress-info span {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.progress-bar {
+  width: 200px;
+  height: 8px;
+  background: #e5e5e5;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #dc2626, #b91c1c);
+  transition: width 0.3s ease;
+}
+
+.floor-plan-content {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.floor-plan-wrapper {
+  position: relative;
+  background: #f8f9fa;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.floor-plan-image {
+  position: relative;
+  width: 100%;
+  /* HAPUS: height: 600px; */
+  /* TAMBAHKAN: padding-top dengan hasil perhitungan Anda */
+  /* Contoh jika rasio aspeknya 75% */
+  padding-top: 75%;
+  background: white; /* Opsional: untuk latar belakang jika gambar belum termuat */
+}
+
+.floor-plan-bg {
+  /* TAMBAHKAN properti ini untuk membuat gambar mengisi kontainer rasio aspek */
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* UBAH: properti width dan height menjadi 100% */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.photo-point {
+  position: absolute !important;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 3px solid white;
+  background: #dc2626;
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%) !important;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 10 !important;
+  /* Added will-change to optimize positioning */
+  will-change: transform;
+}
+
+.photo-point:hover {
+  transform: translate(-50%, -50%) scale(1.2) !important;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.5);
+}
+
+.photo-point.active {
+  background: #22c55e;
+  animation: pulse 2s infinite;
+}
+
+.photo-point.completed {
+  background: #059669;
+  position: relative;
+}
+
+.photo-point.completed .check-mark {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: white;
+  color: #059669;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.photo-point.pending {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.photo-point:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+/* Photo List Styles */
+.photo-list-container {
+  background: #f8f9fa;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.photo-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: white;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.photo-list-header h3 {
+  color: #dc2626;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.photo-list {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.photo-list h3 {
+  color: #dc2626;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.photo-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.photo-item {
+  background: white;
+  border-radius: 6px;
+  padding: 0.75rem;
+  border-left: 4px solid #e5e5e5;
+  transition: all 0.3s ease;
+}
+
+.photo-item.active {
+  border-left-color: #22c55e;
+  background: #f0fdf4;
+}
+
+.photo-item.completed {
+  border-left-color: #059669;
+  background: #ecfdf5;
+}
+
+.photo-item.pending {
+  border-left-color: #9ca3af;
+  opacity: 0.6;
+}
+
+.photo-number {
+  font-weight: bold;
+  color: #dc2626;
+  font-size: 0.9rem;
+}
+
+.photo-label {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.photo-preview {
+  margin-top: 0.5rem;
+}
+
+.thumbnail {
+  width: 100%; /* Memenuhi lebar kontainer */
+  height: 100% px; /* Tinggi lebih besar */
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #e5e5e5;
+}
+
+/* Camera Modal Styles */
+.camera-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.camera-container {
+  background: white;
+  border-radius: 12px;
+  width: 95%; /* Membuatnya tidak menempel di tepi layar */
+  max-width: 500px; /* Batas lebar maksimum untuk layar besar */
+  max-height: 95vh; /* Batas tinggi agar tidak terlalu panjang */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4); /* Efek bayangan agar lebih menonjol */
+}
+
+.camera-header {
+  background: #dc2626;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.camera-header h3 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.camera-content {
+  flex: 1;
+  position: relative;
+  background: #000;
+}
+
+.camera-preview,
+.photo-preview {
+  position: relative;
+  width: 100%;
+  height: 100%; /* Biarkan wadah mengisi ruang yang tersedia */
+  background-color: #000;
+  display: flex; /* Gunakan flexbox untuk menengahkan konten */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Sembunyikan jika ada yang meluber */
+}
+
+.captured-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Memastikan seluruh foto terlihat tanpa terpotong */
+}
+
+.camera-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.camera-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.camera-frame {
+  border: 2px dashed rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  right: 10%;
+  bottom: 30%;
+}
+
+.camera-info {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: auto;
+}
+
+.camera-info p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+.camera-controls {
+  padding: 1rem;
+  background: #f8f9fa;
+  text-align: center;
+}
+
+.btn-capture {
+  background: #22c55e;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-capture:hover:not(:disabled) {
+  background: #16a34a;
+  transform: translateY(-2px);
+}
+
+.btn-capture:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.capture-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Completion Modal */
+.completion-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.modal-content h2 {
+  color: #22c55e;
+  margin-bottom: 1rem;
+}
+
+.modal-content p {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+/* Pagination Controls Styles */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.pagination-btn {
+  background: white;
+  color: #dc2626;
+  border: 2px solid #dc2626;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-btn:hover {
+  background: #dc2626;
+  color: white;
+}
+
+.pagination-btn.active {
+  background: #dc2626;
+  color: white;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+}
+
+.form-group select {
+  width: 100% !important;       /* full width */
+  min-height: 44px !important;  /* tinggi konsisten */
+  padding: 10px 14px !important;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: #fff;
+  color: #111;
+  cursor: pointer;
+
+  /* hilangkan arrow default */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* tambah custom arrow */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg fill='none' stroke='%236b7280' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 18px;
+}
+
+.form-group select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .floor-plan-content {
+    grid-template-columns: 1fr;
+  }
+
+  .floor-plan-header {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .progress-info {
+    text-align: center;
+  }
+
+  .progress-bar {
+    width: 100%;
+  }
+
+  .photo-point {
+    width: 28px;
+    height: 28px;
+    font-size: 0.7rem;
+  }
+
+  .camera-preview {
+    height: 300px;
+  }
+
+  .capture-actions {
+    flex-direction: column;
+  }
+
+  .pagination-controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .pagination-btn {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+
+  .photo-list-header {
+    padding: 0.75rem;
+  }
+
+  .photo-list-header h3 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 1rem 0.5rem;
+  }
+
+  .data-form-container {
+    padding: 1rem;
+  }
+
+  .form-grid {
+    gap: 0.75rem;
+  }
+
+  .photo-point {
+    width: 24px;
+    height: 24px;
+    font-size: 0.6rem;
+  }
+
+  .pagination-btn {
+    font-size: 0.7rem;
+    padding: 0.4rem;
+  }
+}
