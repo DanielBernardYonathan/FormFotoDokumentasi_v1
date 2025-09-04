@@ -1,11 +1,10 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 import requests, json
+import os
 
-with open("credentials.json") as f:
-    creds = json.load(f)
-
-APPS_SCRIPT_URL = creds.get("APPS_SCRIPT_URL")
+APPS_SCRIPT_URL = os.getenv("APPS_SCRIPT_URL")
+DRIVE_FOLDER_ID = os.getenv("DRIVE_FOLDER_ID")
 
 app = FastAPI()
 app.add_middleware(
