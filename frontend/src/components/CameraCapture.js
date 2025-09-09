@@ -16,7 +16,7 @@ const CameraCapture = ({ point, onCapture, onClose }) => {
     return () => {
       stopCamera()
     }
-  }, [capturedImage])
+  }, [capturedImage, stopCamera])
 
   const startCamera = async () => {
     try {

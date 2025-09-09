@@ -27,7 +27,7 @@ const DataForm = ({ onSubmit, initialData = {} }) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
 
     if (name === "nomorUlok") {
-      const found = spkOptions.find((o) => o.nomorUlok == value);
+      const found = spkOptions.find((o) => o.nomorUlok === value);
       if (found) {
         setFormData((prev) => ({
           ...prev,
