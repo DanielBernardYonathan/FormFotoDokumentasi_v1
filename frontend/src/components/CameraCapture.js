@@ -1,24 +1,16 @@
-"use client"
+"use client";
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect, useCallback } from "react";
 
 const CameraCapture = ({ point, onCapture, onClose }) => {
-  const [stream, setStream] = useState(null)
-  const [capturedImage, setCapturedImage] = useState(null)
-  const [isCapturing, setIsCapturing] = useState(false)
-  const videoRef = useRef(null)
-  const canvasRef = useRef(null)
+  const [stream, setStream] = useState(null);
+  const [capturedImage, setCapturedImage] = useState(null);
+  const [isCapturing, setIsCapturing] = useState(false);
+  const videoRef = useRef(null);
+  const canvasRef = useRef(null);
 
-  useEffect(() => {
-    if (!capturedImage) {
-      startCamera()
-    }
-    return () => {
-      stopCamera()
-    }
-  }, [capturedImage, stopCamera])
-
-  const startCamera = async () => {
+  // gunakan useCallback supaya bisa dipakai di dependency useEffect
+  const startCamera = useCallback(async () => {
     try {
       const mediaStream = await navigator.mediaDevices.getUserMedia({
         video: {
@@ -26,51 +18,60 @@ const CameraCapture = ({ point, onCapture, onClose }) => {
           width: { ideal: 1280 },
           height: { ideal: 720 },
         },
-      })
-      setStream(mediaStream)
+      });
+      setStream(mediaStream);
       if (videoRef.current) {
-        videoRef.current.srcObject = mediaStream
+        videoRef.current.srcObject = mediaStream;
       }
     } catch (error) {
-      console.error("Error accessing camera:", error)
-      alert("Tidak dapat mengakses kamera. Pastikan izin kamera telah diberikan.")
+      console.error("Error accessing camera:", error);
+      alert("Tidak dapat mengakses kamera. Pastikan izin kamera telah diberikan.");
     }
-  }
+  }, []);
 
-  const stopCamera = () => {
+  const stopCamera = useCallback(() => {
     if (stream) {
-      stream.getTracks().forEach((track) => track.stop())
-      setStream(null)
+      stream.getTracks().forEach((track) => track.stop());
+      setStream(null);
     }
-  }
+  }, [stream]);
+
+  useEffect(() => {
+    if (!capturedImage) {
+      startCamera();
+    }
+    return () => {
+      stopCamera();
+    };
+  }, [capturedImage, startCamera, stopCamera]);
 
   const capturePhoto = () => {
-    if (!videoRef.current || !canvasRef.current) return
+    if (!videoRef.current || !canvasRef.current) return;
 
-    setIsCapturing(true)
-    const video = videoRef.current
-    const canvas = canvasRef.current
-    const context = canvas.getContext("2d")
+    setIsCapturing(true);
+    const video = videoRef.current;
+    const canvas = canvasRef.current;
+    const context = canvas.getContext("2d");
 
-    canvas.width = video.videoWidth
-    canvas.height = video.videoHeight
-    context.drawImage(video, 0, 0, canvas.width, canvas.height)
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
     canvas.toBlob(
       (blob) => {
         if (!blob) {
-          console.error("Gagal membuat blob dari canvas")
-          setIsCapturing(false)
-          return
+          console.error("Gagal membuat blob dari canvas");
+          setIsCapturing(false);
+          return;
         }
-        const url = URL.createObjectURL(blob)
-        setCapturedImage({ blob, url })   // simpan blob + url
-        setIsCapturing(false)
+        const url = URL.createObjectURL(blob);
+        setCapturedImage({ blob, url });
+        setIsCapturing(false);
       },
       "image/jpeg",
       0.9
-    )
-  }
+    );
+  };
 
   const confirmCapture = () => {
     if (capturedImage) {
@@ -79,25 +80,25 @@ const CameraCapture = ({ point, onCapture, onClose }) => {
         url: capturedImage.url,
         timestamp: new Date().toISOString(),
         point,
-      })
-      stopCamera()
+      });
+      stopCamera();
     }
-  }
+  };
 
   const retakePhoto = () => {
     if (capturedImage?.url) {
-      URL.revokeObjectURL(capturedImage.url)
+      URL.revokeObjectURL(capturedImage.url);
     }
-    setCapturedImage(null)
-  }
+    setCapturedImage(null);
+  };
 
   const handleClose = () => {
-    stopCamera()
+    stopCamera();
     if (capturedImage?.url) {
-      URL.revokeObjectURL(capturedImage.url)
+      URL.revokeObjectURL(capturedImage.url);
     }
-    onClose()
-  }
+    onClose();
+  };
 
   return (
     <div className="camera-modal">
@@ -121,11 +122,7 @@ const CameraCapture = ({ point, onCapture, onClose }) => {
             </div>
           ) : (
             <div className="photo-preview">
-              <img
-                src={capturedImage.url}
-                alt="Captured"
-                className="captured-image"
-              />
+              <img src={capturedImage.url} alt="Captured" className="captured-image" />
             </div>
           )}
           <canvas ref={canvasRef} style={{ display: "none" }} />
@@ -149,7 +146,7 @@ const CameraCapture = ({ point, onCapture, onClose }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CameraCapture
+export default CameraCapture;
